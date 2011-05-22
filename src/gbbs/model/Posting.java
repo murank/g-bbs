@@ -1,6 +1,7 @@
 package gbbs.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -16,8 +17,29 @@ public class Posting implements Serializable {
 	private Key key;
 
 	@Attribute(version = true)
-	private Long version;
 
+	private Long version;
+	
+	private String content;
+
+	private Date postingDate;
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setPostingDate(Date postingDate) {
+		this.postingDate = postingDate;
+	}
+
+	public Date getPostingDate() {
+		return postingDate;
+	}
+	
 	/**
 	 * Returns the key.
 	 * 
