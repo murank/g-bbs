@@ -1,5 +1,6 @@
 package gbbs.controller;
 
+import gbbs.PostConstants;
 import gbbs.model.Posting;
 import gbbs.service.PostingService;
 
@@ -17,6 +18,9 @@ public class IndexController extends Controller {
 		
 		List<Posting> postingList = service.getPostingList();
 		requestScope("postingList", postingList);
+		
+		requestScope(PostConstants.IS_POSTED, sessionScope(PostConstants.IS_POSTED));
+		sessionScope(PostConstants.IS_POSTED, null);
 		
 		return forward("index.jsp");
 	}
