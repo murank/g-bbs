@@ -1,2 +1,5 @@
 @CHARSET "utf-8";
 
+.small {
+	font-size: 80%;
+}
