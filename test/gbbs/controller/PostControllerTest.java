@@ -1,5 +1,6 @@
 package gbbs.controller;
 
+import gbbs.PostConstants;
 import gbbs.model.Posting;
 
 import java.util.Date;
@@ -23,8 +24,10 @@ public class PostControllerTest extends ControllerTestCase {
 
 		Posting stored = Datastore.query(Posting.class).asSingle();
 		assertThat(stored, is(nullValue()));
+
+		assertThat(tester.sessionScope(PostConstants.IS_POSTED), is(nullValue()));
 	}
-	
+
 	@Test
 	public void addNewPost() throws Exception {
 		String content = "aaa";
@@ -41,5 +44,7 @@ public class PostControllerTest extends ControllerTestCase {
 		assertThat(stored, is(notNullValue()));
 		assertThat(stored.getContent(), is(content));
 		assertThat((new Date().getTime() - stored.getPostingDate().getTime()) <= 1 * 1000, is(true));
+
+		assertThat((Boolean) tester.sessionScope(PostConstants.IS_POSTED), is(true));
 	}
 }

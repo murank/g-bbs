@@ -1,5 +1,6 @@
 package gbbs.controller;
 
+import gbbs.PostConstants;
 import gbbs.service.PostingService;
 
 import org.slim3.controller.Controller;
@@ -13,6 +14,7 @@ public class PostController extends Controller {
 	public Navigation run() throws Exception {
 		
 		if(isPost() && doPost()) {
+			sessionScope(PostConstants.IS_POSTED, true);
 			return redirect("/");
 		}
 		
