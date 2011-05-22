@@ -8,6 +8,10 @@ This is tiny and trivial example to show how to create web services on Google Ap
 
 ## Change log
 
+### version 2
+
+display completion messages after posting articles.
+
 ### version 1
 
 implement minimum BBS features:
