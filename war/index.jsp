@@ -11,6 +11,7 @@
 </head>
 <body>
 <h2>Sample BBS</h2>
+<c:if test="${isPosted}"><p>Posting has been completed.</p></c:if>
 <p><a href="/post">post</a></p>
 
 <c:forEach var="e" items="${postingList}">
