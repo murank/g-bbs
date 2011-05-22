@@ -1,12 +1,16 @@
 package gbbs.service;
 
+import gbbs.meta.PostingMeta;
 import gbbs.model.Posting;
 
 import java.util.Date;
+import java.util.List;
 
 import org.slim3.datastore.Datastore;
 
 public class PostingService {
+
+	private PostingMeta pm = new PostingMeta();
 
 	public Posting addNewPosting(String content, Date postingDate) {
 		Posting post = new Posting();
@@ -23,4 +27,7 @@ public class PostingService {
 		return addNewPosting(content, new Date());
 	}
 	
+	public List<Posting> getPostingList() {
+		return Datastore.query(pm).sort(pm.postingDate.desc).asList();
+	}
 }
